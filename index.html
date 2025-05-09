@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Mobile Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- jQuery Mobile -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <!-- Internal CSS (Chapter 3) -->
+  <style>
+
+.ui-page {
+    background: url('images/bkg-blu.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  body {
+    background: url('images/bkg-blu.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+
+  .ui-page {
+    background: url('images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* 🎯 Special background for Contact Page only */
+  #contact.ui-page {
+    background: url('images/iis.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+    body {
+      background-color: #00a2ff;
+      font-family: Arial, sans-serif;
+    }
+    h1, h2 {
+      color: #0066cc;
+    }
+    p {
+      font-size: 16px;
+      color: #000000;
+    }
+    a {
+      color: #ff6600;
+    }
+  </style>
+
+  <!-- JavaScript Form Validation (Chapter 4) -->
+  <script>
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var phone = document.getElementById("phone").value;
+
+      if (name === "" || email === "" || phone === "") {
+        alert("Please fill in all fields!");
+        return false;
+      }
+
+      var emailCheck = /\S+@\S+\.\S+/;
+      if (!emailCheck.test(email)) {
+        alert("Invalid email format.");
+        return false;
+      }
+
+      if (isNaN(phone)) {
+        alert("Phone number must be numeric.");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+
+<!-- Page 1: Home (Chapter 2: HTML elements) -->
+<div data-role="page" id="home">
+  <div data-role="header">
+    <h1>Welcome Baby 💖</h1>
+  </div>
+
+  <div data-role="content">
+    <h2>My First Mobile Web</h2>
+    <img src="images/welcome.jpg" width="100%" alt="Welcome Image" />
+    <p>This project includes HTML, CSS, JavaScript and jQuery Mobile.</p>
+
+    <a href="#about" data-role="button" data-transition="slide">Go to About</a>
+    <a href="#contact" data-role="button" data-transition="fade">Contact Me</a>
+  </div>
+
+  <div data-role="footer">
+    <h4>&copy; 2025 Mobile Web</h4>
+  </div>
+</div>
+
+<!-- Page 2: About -->
+<div data-role="page" id="about">
+  <div data-role="header">
+    <h1>About Me</h1>
+  </div>
+
+  <div data-role="content">
+    <p>Hi, I'm learning how to build mobile websites using jQuery Mobile! 😘</p>
+    <a href="#home" data-role="button" data-transition="slide">Back to Home</a>
+  </div>
+
+  <div data-role="footer">
+    <h4>&copy; 2025 About Page</h4>
+  </div>
+</div>
+
+<!-- Page 3: Contact (Form Validation) -->
+<div data-role="page" id="contact">
+  <div data-role="header">
+    <h1>Contact Me</h1>
+  </div>
+
+  <div data-role="content">
+    <form onsubmit="return validateForm();">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" />
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" />
+
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone" />
+
+      <input type="submit" value="Submit" data-role="button" />
+    </form>
+    <a href="#home" data-role="button" data-transition="slide">Back to Home</a>
+  </div>
+
+  <div data-role="footer">
+    <h4>&copy; 2025 Contact Page</h4>
+  </div>
+</div>
+
+</body>
+</html>
